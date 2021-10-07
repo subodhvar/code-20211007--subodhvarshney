@@ -31,6 +31,11 @@ def table(x):
 try:
     """Calculating BMI"""
     data['BMI'] = np.where(data['HeightCm'], (data['WeightKg'] * 10000 / data['HeightCm'] ** 2), 0)
+
+    """Using Iterative method"""
+    # for i in range(len(data)):
+    #      data.loc[i, "BMI"] = data.loc[i,'WeightKg'] * 10000 / data.loc[i,'HeightCm'] ** 2
+
     """Finding Category and Health risk based on table"""
     for i in range(len(data)):
         data.loc[i, "category"] = table(data.loc[i, "BMI"])['category']
